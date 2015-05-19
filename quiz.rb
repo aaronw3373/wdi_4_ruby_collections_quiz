@@ -14,24 +14,32 @@ ullamcorper mauris vitae condimentum volutpat."
 # Take a string and return an array of normalized words.
 # normalized words contain no punctuation and are all lower case
 def normalize_words words
+  normWords = []
+  normWords = words.downcase.split(/\W+/)
 end
 
 # Question 2
 # Take a string and return the count of normalized words
 def word_count words
+  (normalize_words words).length
 end
+
 
 # Question 3
 # Take a string and return and array of the unique normalized words.
 def unique_words words
+  (normalize_words words).uniq
 end
 
 # Question 4
 # Take a string and return the count of unique normalized words.
 def unique_word_count words
+  (unique_words words).length
 end
 
 # Question 5
 # Take a string and return a Hash of the nomalized words as keys and the count for the words as the values
 def word_frequencies words
+  frequencies = Hash.new(0)
+  frequencies = (normalize_words words).map {|word| frequencies[word] += 1}
 end
